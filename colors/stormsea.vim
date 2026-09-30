@@ -35,24 +35,24 @@ let s:italic_comment = get(g:, 'stormsea_italic_comment', 1) ? 'italic' : 'NONE'
 " cterm values are hand-picked 256-color approximations so the scheme works
 " with and without 'termguicolors' (iceberg/gruvbox style).
 let s:none   = ['NONE', 'NONE']
-let s:bg0    = ['#121621', 233] " deepest water
-let s:bg1    = ['#1A2030', 235] " dark water
-let s:bg2    = ['#232C40', 236] " wave shadow
-let s:bg3    = ['#263857', 238] " blue-black
-let s:fg0    = ['#A6B3BD', 249] " weathered steel
-let s:fg1    = ['#BBCACE', 251] " sea foam
-let s:muted  = ['#707F8D', 245] " distant haze
-let s:blue   = ['#2A5D86', 24]  " deep ocean blue
-let s:blue2  = ['#3B789B', 67]  " wave blue
-let s:cyan   = ['#2D8FAE', 31]  " cold surf
-let s:cyan2  = ['#6B90AD', 103] " mist-lit blue
-let s:foam   = ['#9AB3BD', 109] " crest foam
-let s:white  = ['#BBCACE', 251] " brightest cloud
-let s:red    = ['#A45E63', 131] " muted storm red
-let s:orange = ['#B17A63', 137] " rock/warm accent
-let s:yellow = ['#B5A778', 144] " subdued sand
-let s:green  = ['#6F9187', 108] " cold sea green
-let s:purple = ['#777B98', 60]  " cloud-shadow violet
+let s:bg0    = ['#0A0E16', 232] " deepest water
+let s:bg1    = ['#131A29', 234] " dark water
+let s:bg2    = ['#1E2942', 236] " wave shadow
+let s:bg3    = ['#2A3D5E', 238] " blue-black
+let s:fg0    = ['#C2D3DB', 252] " weathered steel
+let s:fg1    = ['#D6E4E9', 254] " sea foam
+let s:muted  = ['#8D9FAE', 247] " distant haze
+let s:blue   = ['#3572A8', 68]  " deep ocean blue
+let s:blue2  = ['#4E9CC7', 74]  " wave blue
+let s:cyan   = ['#41A9CC', 38]  " cold surf
+let s:cyan2  = ['#93BEDB', 110] " mist-lit blue
+let s:foam   = ['#C9E0E8', 195] " crest foam
+let s:white  = ['#E4EFF3', 255] " brightest cloud
+let s:red    = ['#C9757E', 174] " muted storm red
+let s:orange = ['#D09172', 173] " rock/warm accent
+let s:yellow = ['#D6C48D', 186] " subdued sand
+let s:green  = ['#8AB7A9', 109] " cold sea green
+let s:purple = ['#9CA1C6', 146] " cloud-shadow violet
 
 " ── Highlight helper (tokyonight/gruvbox style) ──────────────────────────
 " call s:H(group, fg, bg [, attr [, guisp]])
@@ -124,7 +124,7 @@ call s:H('Search', s:bg0, s:cyan2)
 call s:H('IncSearch', s:bg0, s:foam)
 hi! link CurSearch IncSearch
 call s:H('Substitute', s:bg0, s:yellow)
-call s:H('Visual', s:none, s:blue)
+call s:H('Visual', s:white, s:blue)
 hi! link VisualNOS Visual
 call s:H('MatchParen', s:foam, s:bg3, 'bold')
 call s:H('NonText', s:bg3, s:none)
@@ -305,24 +305,24 @@ endif
 
 " ── Terminal ANSI palette (Vim + Neovim, iceberg style) ──────────────────
 if has('nvim')
-  let g:terminal_color_0  = '#121621'
-  let g:terminal_color_1  = '#A45E63'
-  let g:terminal_color_2  = '#6F9187'
-  let g:terminal_color_3  = '#B5A778'
-  let g:terminal_color_4  = '#2A5D86'
-  let g:terminal_color_5  = '#777B98'
-  let g:terminal_color_6  = '#2D8FAE'
-  let g:terminal_color_7  = '#A6B3BD'
-  let g:terminal_color_8  = '#707F8D'
-  let g:terminal_color_9  = '#B87378'
-  let g:terminal_color_10 = '#8EAEA3'
-  let g:terminal_color_11 = '#C8BA88'
-  let g:terminal_color_12 = '#4A7FA4'
-  let g:terminal_color_13 = '#9296B1'
-  let g:terminal_color_14 = '#55A9C2'
-  let g:terminal_color_15 = '#BBCACE'
+  let g:terminal_color_0  = '#0A0E16'
+  let g:terminal_color_1  = '#C9757E'
+  let g:terminal_color_2  = '#8AB7A9'
+  let g:terminal_color_3  = '#D6C48D'
+  let g:terminal_color_4  = '#3572A8'
+  let g:terminal_color_5  = '#9CA1C6'
+  let g:terminal_color_6  = '#41A9CC'
+  let g:terminal_color_7  = '#C2D3DB'
+  let g:terminal_color_8  = '#8D9FAE'
+  let g:terminal_color_9  = '#D4898F'
+  let g:terminal_color_10 = '#A3CABC'
+  let g:terminal_color_11 = '#E3D29A'
+  let g:terminal_color_12 = '#5B97C6'
+  let g:terminal_color_13 = '#B3B8D8'
+  let g:terminal_color_14 = '#6FC3DC'
+  let g:terminal_color_15 = '#E4EFF3'
 else
-  let g:terminal_ansi_colors = ['#121621', '#A45E63', '#6F9187', '#B5A778', '#2A5D86', '#777B98', '#2D8FAE', '#A6B3BD', '#707F8D', '#B87378', '#8EAEA3', '#C8BA88', '#4A7FA4', '#9296B1', '#55A9C2', '#BBCACE']
+  let g:terminal_ansi_colors = ['#0A0E16', '#C9757E', '#8AB7A9', '#D6C48D', '#3572A8', '#9CA1C6', '#41A9CC', '#C2D3DB', '#8D9FAE', '#D4898F', '#A3CABC', '#E3D29A', '#5B97C6', '#B3B8D8', '#6FC3DC', '#E4EFF3']
 endif
 
 delfunction s:H
