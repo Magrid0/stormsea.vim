@@ -35,23 +35,23 @@ let s:italic_comment = get(g:, 'stormsea_italic_comment', 1) ? 'italic' : 'NONE'
 " cterm values are hand-picked 256-color approximations so the scheme works
 " with and without 'termguicolors' (iceberg/gruvbox style).
 let s:none   = ['NONE', 'NONE']
-let s:bg0    = ['#0A0E16', 232] " deepest water
-let s:bg1    = ['#131A29', 234] " dark water
-let s:bg2    = ['#1E2942', 236] " wave shadow
-let s:bg3    = ['#2A3D5E', 238] " blue-black
-let s:fg0    = ['#C2D3DB', 252] " weathered steel
-let s:fg1    = ['#D6E4E9', 254] " sea foam
-let s:muted  = ['#8D9FAE', 247] " distant haze
-let s:blue   = ['#3572A8', 68]  " deep ocean blue
+let s:bg0    = ['#05080D', 232] " abyssal water
+let s:bg1    = ['#0D1420', 233] " dark water
+let s:bg2    = ['#182435', 235] " wave shadow
+let s:bg3    = ['#2C405F', 238] " blue-black
+let s:fg0    = ['#D3E2E9', 254] " weathered steel
+let s:fg1    = ['#E2EDF2', 255] " sea foam
+let s:muted  = ['#9DADB9', 145] " distant haze
+let s:blue   = ['#2A5D86', 24]  " deep ocean blue
 let s:blue2  = ['#4E9CC7', 74]  " wave blue
 let s:cyan   = ['#41A9CC', 38]  " cold surf
 let s:cyan2  = ['#93BEDB', 110] " mist-lit blue
-let s:foam   = ['#C9E0E8', 195] " crest foam
-let s:white  = ['#E4EFF3', 255] " brightest cloud
+let s:azure  = ['#6FC3E8', 81]  " wave-crest azure
+let s:foam   = ['#D8E9F0', 195] " crest foam
+let s:white  = ['#F0F6F9', 255] " brightest cloud
 let s:red    = ['#C9757E', 174] " muted storm red
 let s:orange = ['#D09172', 173] " rock/warm accent
 let s:yellow = ['#D6C48D', 186] " subdued sand
-let s:green  = ['#8AB7A9', 109] " cold sea green
 let s:purple = ['#9CA1C6', 146] " cloud-shadow violet
 
 " ── Highlight helper (tokyonight/gruvbox style) ──────────────────────────
@@ -150,8 +150,8 @@ call s:H('Ignore', s:muted, s:none)
 call s:H('Comment', s:muted, s:none, s:italic_comment)
 hi! link SpecialComment Special
 call s:H('Constant', s:cyan2, s:none)
-call s:H('String', s:green, s:none)
-call s:H('Character', s:green, s:none)
+call s:H('String', s:azure, s:none)
+call s:H('Character', s:azure, s:none)
 call s:H('Number', s:cyan2, s:none)
 call s:H('Boolean', s:cyan, s:none)
 call s:H('Float', s:cyan2, s:none)
@@ -183,10 +183,10 @@ call s:H('Error', s:red, s:none, 'undercurl', s:red)
 call s:H('SpellBad', s:none, s:none, 'undercurl', s:red)
 call s:H('SpellCap', s:none, s:none, 'undercurl', s:cyan2)
 call s:H('SpellRare', s:none, s:none, 'undercurl', s:purple)
-call s:H('SpellLocal', s:none, s:none, 'undercurl', s:green)
+call s:H('SpellLocal', s:none, s:none, 'undercurl', s:azure)
 
 " ── Diffs ────────────────────────────────────────────────────────────────
-call s:H('DiffAdd', s:green, s:bg1)
+call s:H('DiffAdd', s:azure, s:bg1)
 call s:H('DiffChange', s:cyan2, s:bg1)
 call s:H('DiffDelete', s:red, s:bg1)
 call s:H('DiffText', s:white, s:blue)
@@ -201,15 +201,15 @@ hi! link diffLine Title
 call s:H('DiagnosticError', s:red, s:none)
 call s:H('DiagnosticWarn', s:yellow, s:none)
 call s:H('DiagnosticInfo', s:cyan2, s:none)
-call s:H('DiagnosticHint', s:green, s:none)
+call s:H('DiagnosticHint', s:azure, s:none)
 call s:H('DiagnosticSignError', s:red, s:none)
 call s:H('DiagnosticSignWarn', s:yellow, s:none)
 call s:H('DiagnosticSignInfo', s:cyan2, s:none)
-call s:H('DiagnosticSignHint', s:green, s:none)
+call s:H('DiagnosticSignHint', s:azure, s:none)
 call s:H('DiagnosticUnderlineError', s:none, s:none, 'undercurl', s:red)
 call s:H('DiagnosticUnderlineWarn', s:none, s:none, 'undercurl', s:yellow)
 call s:H('DiagnosticUnderlineInfo', s:none, s:none, 'undercurl', s:cyan2)
-call s:H('DiagnosticUnderlineHint', s:none, s:none, 'undercurl', s:green)
+call s:H('DiagnosticUnderlineHint', s:none, s:none, 'undercurl', s:azure)
 hi! link LspReferenceText CursorLine
 hi! link LspReferenceRead CursorLine
 hi! link LspReferenceWrite CursorLine
@@ -305,24 +305,24 @@ endif
 
 " ── Terminal ANSI palette (Vim + Neovim, iceberg style) ──────────────────
 if has('nvim')
-  let g:terminal_color_0  = '#0A0E16'
+  let g:terminal_color_0  = '#05080D'
   let g:terminal_color_1  = '#C9757E'
-  let g:terminal_color_2  = '#8AB7A9'
+  let g:terminal_color_2  = '#6FC3E8'
   let g:terminal_color_3  = '#D6C48D'
-  let g:terminal_color_4  = '#3572A8'
+  let g:terminal_color_4  = '#2A5D86'
   let g:terminal_color_5  = '#9CA1C6'
   let g:terminal_color_6  = '#41A9CC'
-  let g:terminal_color_7  = '#C2D3DB'
-  let g:terminal_color_8  = '#8D9FAE'
-  let g:terminal_color_9  = '#D4898F'
-  let g:terminal_color_10 = '#A3CABC'
-  let g:terminal_color_11 = '#E3D29A'
-  let g:terminal_color_12 = '#5B97C6'
-  let g:terminal_color_13 = '#B3B8D8'
-  let g:terminal_color_14 = '#6FC3DC'
-  let g:terminal_color_15 = '#E4EFF3'
+  let g:terminal_color_7  = '#D3E2E9'
+  let g:terminal_color_8  = '#9DADB9'
+  let g:terminal_color_9  = '#DE929A'
+  let g:terminal_color_10 = '#A5DDF5'
+  let g:terminal_color_11 = '#E8D6A0'
+  let g:terminal_color_12 = '#4A7FA4'
+  let g:terminal_color_13 = '#BCC1DC'
+  let g:terminal_color_14 = '#7CCDEE'
+  let g:terminal_color_15 = '#F0F6F9'
 else
-  let g:terminal_ansi_colors = ['#0A0E16', '#C9757E', '#8AB7A9', '#D6C48D', '#3572A8', '#9CA1C6', '#41A9CC', '#C2D3DB', '#8D9FAE', '#D4898F', '#A3CABC', '#E3D29A', '#5B97C6', '#B3B8D8', '#6FC3DC', '#E4EFF3']
+  let g:terminal_ansi_colors = ['#05080D', '#C9757E', '#6FC3E8', '#D6C48D', '#2A5D86', '#9CA1C6', '#41A9CC', '#D3E2E9', '#9DADB9', '#DE929A', '#A5DDF5', '#E8D6A0', '#4A7FA4', '#BCC1DC', '#7CCDEE', '#F0F6F9']
 endif
 
 delfunction s:H

@@ -4,15 +4,15 @@ set cpo&vim
 " stormsea airline theme (iceberg.vim/autoload/airline/themes/iceberg.vim style)
 " Each color: [guifg, guibg, ctermfg, ctermbg]
 function! s:build_palette() abort
-  let col_base     = ['#C2D3DB', '#0A0E16', 252, 232]
-  let col_edge     = ['#0A0E16', '#93BEDB', 232, 110]
-  let col_gradient = ['#C2D3DB', '#1E2942', 252, 236]
-  let col_nc       = ['#8D9FAE', '#131A29', 247, 234]
-  let col_error    = ['#0A0E16', '#C9757E', 232, 174]
-  let col_warning  = ['#0A0E16', '#D6C48D', 232, 186]
-  let col_insert   = ['#0A0E16', '#8AB7A9', 232, 109]
-  let col_replace  = ['#0A0E16', '#D09172', 232, 173]
-  let col_visual   = ['#0A0E16', '#4E9CC7', 232, 74]
+  let col_base     = ['#D3E2E9', '#05080D', 254, 232]
+  let col_edge     = ['#05080D', '#93BEDB', 232, 110]
+  let col_gradient = ['#D3E2E9', '#182435', 254, 235]
+  let col_nc       = ['#9DADB9', '#0D1420', 145, 233]
+  let col_error    = ['#05080D', '#C9757E', 232, 174]
+  let col_warning  = ['#05080D', '#D6C48D', 232, 186]
+  let col_insert   = ['#05080D', '#6FC3E8', 232, 81]
+  let col_replace  = ['#05080D', '#D09172', 232, 173]
+  let col_visual   = ['#05080D', '#4E9CC7', 232, 74]
 
   let p = {}
   let p.inactive = airline#themes#generate_color_map(col_nc, col_nc, col_nc)
